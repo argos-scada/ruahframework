@@ -6,7 +6,7 @@ const path = require('path');
 webserver: {
 	let app = express();
 	app.use('/', express.static(path.join(__dirname, '.')));
-	app.listen(8888);
+	app.listen(8888, '0.0.0.0');
 }
 
 const test = require('node:test');
