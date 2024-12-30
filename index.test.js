@@ -23,7 +23,7 @@ function import_script () {
 	let script = document.createElement("script");
 	script.type = "text/javascript";
 	script.src = "main.umd";
-	script.setAttribute("boot");
+	script.setAttribute("boot", true);
 	document.body.appendChild(script);
 	return script;
 }
