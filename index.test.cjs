@@ -39,7 +39,6 @@ test("General Test", async t => {
 		throw err;
 	});
 	await page.evaluate(create_canva);
-	console.log("1");
 	await t.test("Script Loaded", async t => {
 		let script = await page.evaluate(async () => {
 			let script = document.createElement("script");
@@ -63,6 +62,5 @@ test("General Test", async t => {
 		assert.notEqual(app, null);
 	});
 	await browser.close();
-	assert.equal(1, 2);
 });
 
