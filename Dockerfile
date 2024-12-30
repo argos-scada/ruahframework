@@ -1,5 +1,6 @@
 FROM node:22.3.0-alpine3.20 AS npm_install
 WORKDIR /ruah
+USER foo
 COPY package.json package-lock.json .
 RUN npm install
 
