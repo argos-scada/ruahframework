@@ -36,6 +36,11 @@ test("General test", async t => {
 	});
 	await page.evaluate(create_canva);
 	await page.evaluate(import_script);
+	await t.test("App initializated", async t => {
+		await page.evaluate(() => {
+			document.getElementById("hp-scada");
+		});
+	});
 	await browser.close();
 });
 
