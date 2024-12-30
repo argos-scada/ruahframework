@@ -23,6 +23,7 @@ function import_script () {
 	let script = document.createElement("script");
 	script.type = "text/javascript";
 	script.src = "main.umd";
+	script.setAttribute("boot");
 	document.body.appendChild(script);
 	return script;
 }
@@ -30,6 +31,9 @@ function import_script () {
 test("General test", async t => {
 	const browser = await puppeteer.launch(conf);
 	const page = await browser.newPage();
+	page.on('error', err => {
+		throw err;
+	});
 	await page.evaluate(create_canva);
 	await page.evaluate(import_script);
 	await browser.close();
