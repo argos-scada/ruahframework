@@ -56,6 +56,7 @@ test("General Test", async t => {
 				};
 			});
 			let result = await promise;
+			return result;
 		});
 		await assert.ok(script);
 	});
