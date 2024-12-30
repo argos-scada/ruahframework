@@ -48,12 +48,16 @@ test("General Test", async t => {
 			script.onerror = () => { throw new Error() };
 			document.body.appendChild(script);
 			let promise = new Promise((resolve, reject) => {
-				script.onerror = reject(false);
-				script.onload = resolve(true);
+				script.onerror = () => {
+					reject(false);
+				};
+				script.onload = () => {
+					resolve(true);
+				};
 			});
 			let result = await promise;
 		});
-		await assert.ok();
+		await assert.ok(script);
 	});
 	await t.test("App initializated", async t => {
 		let app = await page.evaluate(() => {
