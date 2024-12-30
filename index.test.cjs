@@ -1,17 +1,17 @@
 //const test = require("node:test");
 //const puppeteer = require("puppeteer");
 
-	import express from 'express';
-	import path from 'path';
+const express = require('express');
+const path = require('path');
 webserver: {
 	let app = express();
 	app.use('/', express.static(path.join(__dirname, '.')));
 	app.listen(8888);
 }
 
-import test from 'node:test';
-import assert from 'node:assert';
-import puppeteer from 'puppeteer-core';
+const test = require('node:test');
+const assert = require('node:assert');
+const puppeteer = require('puppeteer-core');
 
 const conf = {
 	args: ['--no-sandbox',],
