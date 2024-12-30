@@ -1,9 +1,9 @@
 //const test = require("node:test");
 //const puppeteer = require("puppeteer");
 
-webserver: {
 	import express from 'express';
 	import path from 'path';
+webserver: {
 	let app = express();
 	app.use('/', express.static(path.join(__dirname, '.')));
 	app.listen(8888);
