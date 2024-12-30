@@ -20,13 +20,6 @@ const conf = {
 	executablePath: "/usr/bin/google-chrome"
 };
 
-function create_canva () {
-	let root = document.createElement("div");
-	root.id = "viewContent";
-	document.body.appendChild(root);
-	return root;
-}
-
 test("General Test", async t => {
 	console.log("General Test Started");
 	const browser = await puppeteer.launch(conf);
@@ -38,25 +31,16 @@ test("General Test", async t => {
 	page.on('error', err => {
 		throw err;
 	});
-	await page.evaluate(create_canva);
+	await t.test("Canva Do Exist", async t => {
+		let canva = await page.evaluate(() => {
+			return document.getElementById("viewContent");
+		});
+		assert.ok(canva);
+	});
 	await t.test("Script Loaded", async t => {
 		let script = await page.evaluate(async () => {
-			let script = document.createElement("script");
-			script.type = "text/javascript";
-			script.src = "index.js";
-			script.setAttribute("boot", true);
-			script.onerror = () => { throw new Error() };
-			document.body.appendChild(script);
-			let promise = new Promise((resolve, reject) => {
-				script.onerror = () => {
-					reject(false);
-				};
-				script.onload = () => {
-					resolve(true);
-				};
-			});
-			let result = await promise;
-			return result;
+			let script = document.getElementById("ruah-script");
+			return script;
 		});
 		await assert.ok(script);
 	});
