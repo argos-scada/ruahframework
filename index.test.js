@@ -2,13 +2,14 @@
 //const puppeteer = require("puppeteer");
 
 import test from 'node:test';
+import assert from 'node:assert';
 import puppeteer from 'puppeteer-core';
 
 const conf = {
 	args: ['--no-sandbox',],
-	headless: false,
+	headless: true,
 	ignoreHTTPSErrors: true,
-	executablePath: executablePath(),
+	executablePath: "/usr/bin/google-chrome"
 };
 
 test("General test", async t => {
