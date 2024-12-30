@@ -1,6 +1,14 @@
 //const test = require("node:test");
 //const puppeteer = require("puppeteer");
 
+webserver: {
+	import express from 'express';
+	import path from 'path';
+	let app = express();
+	app.use('/', express.static(path.join(__dirname, '.')));
+	app.listen(8888);
+}
+
 import test from 'node:test';
 import assert from 'node:assert';
 import puppeteer from 'puppeteer-core';
@@ -19,18 +27,24 @@ function create_canva () {
 	return root;
 }
 
-test("General test", async t => {
+test("General Test", async t => {
+	console.log("General Test Started");
 	const browser = await puppeteer.launch(conf);
+	console.log("Browser is launched");
 	const page = await browser.newPage();
+	console.log("New page open");
+	await page.goto('http://localhost:8888/test.html', { waitUntil: 'domcontentloaded' });
+	console.log("Opened a new url");
 	page.on('error', err => {
 		throw err;
 	});
 	await page.evaluate(create_canva);
+	console.log("1");
 	await t.test("Script Loaded", async t => {
 		let script = await page.evaluate(async () => {
 			let script = document.createElement("script");
 			script.type = "text/javascript";
-			script.src = "file:///index.js";
+			script.src = "index.js";
 			script.setAttribute("boot", true);
 			script.onerror = () => { throw new Error() };
 			document.body.appendChild(script);
@@ -49,5 +63,6 @@ test("General test", async t => {
 		assert.notEqual(app, null);
 	});
 	await browser.close();
+	assert.equal(1, 2);
 });
 
