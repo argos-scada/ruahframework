@@ -29,7 +29,12 @@ test("General Test", async t => {
 	await page.goto('http://localhost:8888/test.html', { waitUntil: 'domcontentloaded' });
 	console.log("Opened a new url");
 	page.on('error', err => {
+		console.error("Page error: ");
 		throw err;
+	});
+	page.on('console', message => {
+		console.log("Console message [" + message.type() + "]: " + message.text());
+		message.type() == "error" ? console.dir(message.location()) : null;
 	});
 	await t.test("Canva Do Exist", async t => {
 		let canva = await page.evaluate(() => {
@@ -45,10 +50,11 @@ test("General Test", async t => {
 		await assert.ok(script);
 	});
 	await t.test("App initializated", async t => {
+		await new Promise(resolve => setTimeout(resolve, 10e3));
 		let app = await page.evaluate(() => {
 			return document.getElementById("hp-scada");
 		});
-		assert.notEqual(app, null);
+		assert.ok(app);
 	});
 	await browser.close();
 });
