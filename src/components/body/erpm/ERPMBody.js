@@ -30,8 +30,10 @@ class ERPMBody extends Component {
 				
 			default:
 				console.warn(`map.levelmap.max must be between 1 and 3: ${this.map.levelmap.max}`);
-				child = document.createElement("div");
-				child.innerText("Internal Error\n check it on console");
+				child = {
+					node: document.createElement("div")
+				};
+				child.node.innerText = "Internal Error\n check it on console";
 		}
 		this.node.appendChild(child.node);
 	}

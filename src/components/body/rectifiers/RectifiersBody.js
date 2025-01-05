@@ -1,6 +1,7 @@
 import Component from '../../../prototype/Component.js';
 
 import RectifiersOverview from './overview/RectifiersOverview.js';
+import RectifiersUnit from './unit/RectifiersUnit.js';
 
 /*
 import ASSETSAPI from '../../../lib/ASSETSAPI.js';
@@ -23,7 +24,6 @@ class RectifiersBody extends Component {
 			case 1:
 				child = new RectifiersOverview(this.map);
 				break;
-				/*
 			case 2:
 				child = new RectifiersUnit(this.map);
 				break;
@@ -34,8 +34,10 @@ class RectifiersBody extends Component {
 				*/
 			default:
 				console.warn(`map.levelmap.max must be between 1 and 3: ${this.map.levelmap.max}`);
-				child = document.createElement("div");
-				child.innerText("Internal Error\n check it on console");
+				child = {
+					node: document.createElement("div")
+				};
+				child.node.innerText = "Internal Error\n check it on console";
 		}
 		this.node.appendChild(child.node);
 	}
