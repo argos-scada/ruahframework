@@ -13,6 +13,10 @@ class ASSETSAPI {
 		});
 	}
 
+	static get_root_path () {
+		return this.#root_path;
+	}
+
 	static fetch_asset (path) {
 		return fetch(this.#asset_url(path));
 	}
@@ -25,7 +29,7 @@ class ASSETSAPI {
 		let currentPath = window.location.pathname;
 		currentPath = currentPath.split('?')[0];
 		let pathSegments = currentPath.split('/');
-		let rootPath = '/' + pathSegments[1] + "/";
+		let rootPath = pathSegments[1] ? '/' + pathSegments[1] + "/" : "/";
 		return rootPath;
 	}
 

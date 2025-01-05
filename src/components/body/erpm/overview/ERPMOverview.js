@@ -10,7 +10,7 @@ class ERPMOverview extends Component {
 	}
 
 	#make_child () {
-		let path = "hp/bg/erpm.svg";
+		let path = "ruah/img/bg/erpm.svg";
 		ASSETSAPI.fetch_svg(path).then(svg => {
 			this.node.appendChild(svg);
 		});

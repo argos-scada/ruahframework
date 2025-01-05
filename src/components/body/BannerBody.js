@@ -11,7 +11,7 @@ class BannerBody extends Component {
 	}
 
 	#get_child () {
-		ASSETSAPI.fetch_svg("hp/bg/l0-banner.svg").then(svg => {
+		ASSETSAPI.fetch_svg("ruah/img/bg/l0-banner.svg").then(svg => {
 			this.node.appendChild(svg);
 			let timeInterval = 1e3;
 			setTimeout(() => {

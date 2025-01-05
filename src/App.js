@@ -16,7 +16,7 @@ class App {
 	}
 
 	constructor () {
-		let tree_link = "hp/views_tree.js";
+		let tree_link = "ruah/config/data_tree.json";
 		this.tree_promise = this.download_tree(tree_link);
 		this.tree_promise.then(tree => {
 			console.log({ tree });

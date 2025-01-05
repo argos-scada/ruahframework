@@ -6,6 +6,8 @@
   "browser": "./dist/hp.umd.js",
   "scripts": {
     "build": "rollup --config",
+    "serve": "node backend/server.cjs",
+    "static_serve": "npx http-server html",
     "test": "node --test"
   },
   "author": "",
@@ -19,6 +21,7 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "chart.js": "^4.4.3",
     "express": "^4.21.2",
-    "puppeteer-core": "^23.11.1"
+    "puppeteer-core": "^23.11.1",
+    "http-server": "^14.1.1"
   }
 }

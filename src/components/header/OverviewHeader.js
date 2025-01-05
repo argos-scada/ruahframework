@@ -1,6 +1,14 @@
-import Component from '../../prototype/Component.js';
 import ASSETSAPI from '../../lib/ASSETSAPI.js';
 import NAVAPI from '../../lib/NAVAPI.js';
+import Component from '../../prototype/Component.js';
+
+//	Erase later
+function show () {
+}
+
+//	Erase later
+function hide () {
+}
 
 function get_date () {
 	let date = new Date();
@@ -47,6 +55,11 @@ function subtitle(desc, source) {
 	}
 }
 
+function set_visible(selector, div) {
+	let element = div.querySelector(selector);
+	element.style.display = "block";
+}
+
 class OverviewHeader extends Component {
 	constructor (map) {
 		let nodeTag = "div";
@@ -55,7 +68,7 @@ class OverviewHeader extends Component {
 	}
 
 	#make_child () {
-		let path = "hp/header_L1.svg";
+		let path = "ruah/img/menu/header_L1.svg";
 		ASSETSAPI.fetch_svg(path).then(svg => {
 			this.node.appendChild(svg);
 			static_strings: {
@@ -63,7 +76,7 @@ class OverviewHeader extends Component {
 				this.node.querySelector("#operator-name").innerHTML = this.map.user.fullname;
 				if(this.map.levelmap.max == 3) {
 					['#l1-daily', '#l1-hourly', '#l1-graphics'].forEach(selector => {
-						set_visible(selector, div);
+						set_visible(selector, this.node);
 					});
 				}
 			}
@@ -109,7 +122,7 @@ class OverviewHeader extends Component {
 			window.location.href = "logout.htm";
 		});
 		this.#bind_button("l1-graphics", "Gráficos", () => {
-			NAVAPI.goto_id("l1-graphics");
+			NAVAPI.goto_id("graphics", this.map.params.address);
 		});
 		this.#bind_button("l1-daily", "Relatório Diário", () => {
 			NAVAPI.goto_id("l1-daily");

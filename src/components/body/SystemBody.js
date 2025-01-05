@@ -11,7 +11,7 @@ class SystemBody extends Component {
 	}
 
 	#get_child () {
-		ASSETSAPI.fetch_svg("hp/bg/system.svg").then(svg => {
+		ASSETSAPI.fetch_svg("ruah/img/bg/system.svg").then(svg => {
 			{
 				let rectId = "l1-rectifiers";
 				let rectifiersButton = svg.querySelector("#" + rectId);

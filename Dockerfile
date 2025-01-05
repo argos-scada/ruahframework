@@ -16,10 +16,13 @@ COPY . .
 FROM full_set AS unitary_test
 CMD npm test
 
-FROM full_set as build_module
+FROM full_set AS build_module
 RUN npm run build
 CMD cat dist/hp.umd.js
 
 FROM full_set AS integration_test
 CMD npm run full_test
+
+FROM build_module AS serve
+CMD npm run serve
 
