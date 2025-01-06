@@ -17,7 +17,7 @@ class LiveThread {
 
 	fetch_value () {
 		console.debug("Trying to get value of XID " + this.datapoint);
-		if (errorCount > 3) {
+		if (this.errorCount > 3) {
 			DatapointApi.tag_load_num(this.datapoint).then(value => {
 				this.write_value(value);
 			}).catch(error => {
