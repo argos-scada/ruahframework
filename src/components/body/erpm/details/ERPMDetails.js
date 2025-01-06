@@ -51,6 +51,7 @@ class LiveDiagram extends Component {
 
 	#make_child () {
 		ASSETSAPI.fetch_svg(this.bgName).then(svg => {
+			let station_tag = this.map.params.address;
 			this.node.appendChild(svg);
 			let elementSet = svg.querySelectorAll('[id^="update-"]');
 			elementSet.forEach(element => {
