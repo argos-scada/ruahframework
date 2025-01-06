@@ -8,7 +8,6 @@ async function load_json(url) {
 
 class DatapointApi {
 	static tag_load_num(xid) {
-		xid = encodeURIComponent(xid);
 		return new Promise((resolve, reject) => {
 			this.tag_load_value(xid).then(string => {
 				resolve(Number(string));
