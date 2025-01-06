@@ -46,7 +46,7 @@ class TableData extends Component {
 		} else if (type == "COMSTATUS") {
 			child = new Modem(isatag);
 		} else if (type == "NUMBER") {
-			let suffix = "EDI-1";
+			let suffix = column.suffix.toLowerCase();
 			let eunit = "Vdc";
 			child = new NumericDisplay(isatag, suffix, eunit);
 		} else if (type == "DAILY") {
