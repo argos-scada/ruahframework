@@ -17,14 +17,18 @@ class LiveThread {
 
 	fetch_value () {
 		console.debug("Trying to get value of XID " + this.datapoint);
+		console.debug({ errorCount: this.errorCount });
 		if (this.errorCount < 3) {
 			DatapointApi.tag_load_num(this.datapoint).then(value => {
+				console.debug("Datapoint loaded with success " + value);
 				this.write_value(value);
 			}).catch(error => {
+				console.error("Could not fetch tag value");
 				this.errorCount += 1;
 				console.error(error);
 			});
 		} else {
+			console.warn("Stopping Thread at XID " + this.datapoint);
 			this.stop_thread();
 		}
 	}
