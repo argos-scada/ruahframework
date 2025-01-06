@@ -25,3 +25,4 @@ class StatefulComponent extends Component {
 }
 
 export default StatefulComponent;
+
