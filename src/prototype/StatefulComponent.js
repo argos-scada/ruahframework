@@ -29,7 +29,7 @@ class StatefulComponent extends Component {
 	}
 
 	write_error () {
-		update_value("\u274C");
+		this.update_value("\u274C");
 	}
 
 	start_loop () {
@@ -44,7 +44,7 @@ class StatefulComponent extends Component {
 
 	stop_loop () {
 		clearInterval(this.loopPointer);
-		write_error();
+		this.write_error();
 	}
 }
 
