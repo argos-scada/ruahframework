@@ -36,12 +36,7 @@ class SummaryTable extends Component {
 		let from = (this.index - 1) * this.table_size;
 		let to = from + this.table_size - 1;
 		let slice = this.entries.slice(from, to);
-		let preTag;
-		for (let i = 0; i < this.map.levelmap.max; i++) {
-			let level = i + 1;
-			let name = this.map.levelmap[level].name;
-			preTag = preTag ? name : `${preTag}:${name}`;
-		}
+		let preTag = this.map.params.address;
 		slice.forEach(([childName, child]) => {
 			let childLabel = child.label.toLowerCase();
 			let isaTag = `${preTag}:${childName}`;
