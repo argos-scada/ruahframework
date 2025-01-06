@@ -5,7 +5,7 @@ import DatapointApi from "../../../../lib/DatapointApi";
 class LiveThread {
 	constructor (station_tag, element) {
 		this.node = element;
-		this.suffix = element.id.split("update-")[1];
+		let suffix = element.id.split("update-")[1];
 		this.datapoint = station_tag + ":" + suffix.toLowerCase();
 		this.errorCount = 0;
 		this.start_thread();
