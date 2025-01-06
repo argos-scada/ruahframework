@@ -71,7 +71,7 @@ class ERPMDetails extends Component {
 	#make_child () {
 		let stationType = this.map.levelmap[3].class || "rpm-single";
 		let path = `ruah/img/bg/${stationType}.svg`;
-		let diagram = new LiveDiagram(map, path);
+		let diagram = new LiveDiagram(this.map, path);
 		this.node.append(diagram.node);
 	}
 }
