@@ -43,6 +43,7 @@ class StatefulComponent extends Component {
 
 	stop_loop () {
 		clearInterval(this.loopPointer);
+		write_error();
 	}
 }
 
