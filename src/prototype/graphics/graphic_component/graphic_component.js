@@ -7,7 +7,7 @@ import Api_connector from './api_connector.js';
 class Graphic_component {
 	constructor (map) {
 		this.chart_handler = new Chart_handler(map.title);
-		this.id_handler = new Id_handler(map.params.address);
+		this.id_handler = new Id_handler(map.params.reference);
 		this.api_connector = new Api_connector(this.id_handler.datapoints);
 		this.cache_manager = new Cache_manager();
 		this.time_controller = new Time_controller().on_new_frame((ts_start, ts_end) => {
