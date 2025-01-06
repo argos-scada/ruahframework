@@ -38,8 +38,8 @@ class SummaryTable extends Component {
 		let slice = this.entries.slice(from, to);
 		let preTag = this.map.params.address;
 		slice.forEach(([childName, child]) => {
-			let childLabel = child.label.toLowerCase();
-			let isaTag = `${preTag}:${childName}`;
+			let childLabel = child.label;
+			let isaTag = `${preTag}:${childName.toLowerCase()}`;
 			let row = new TableRow(this.model, childName, childLabel, isaTag);
 			this.node.append(row.node);
 		});
