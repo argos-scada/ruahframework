@@ -12,7 +12,7 @@ class Id_handler {
 	estimate_datapoints () {
 		let datapoints = [];
 		this.dp_suffixes.forEach(meta_dp => {
-			let suffix = meta_dp[0];
+			let suffix = meta_dp[0].toLowerCase();
 			let datapoint = `${this.station_address}:${suffix}`;
 			let description = meta_dp[1];
 			datapoints.push([datapoint, description]);
