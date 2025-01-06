@@ -25,8 +25,6 @@ class ERPMBody extends Component {
 			case 3:
 				child = new ERPMDetails(this.map);
 				break;
-			case 4:
-				child = new ERPMMaintenance(this.map);
 				
 			default:
 				console.warn(`map.levelmap.max must be between 1 and 3: ${this.map.levelmap.max}`);
