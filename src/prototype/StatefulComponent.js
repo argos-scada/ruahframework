@@ -8,6 +8,7 @@ class StatefulComponent extends Component {
 		super (map, nodeTag, className);
 		this.datapoint = datapoint;
 		this.errorCount = 0;
+		this.start_loop();
 	}
 
 	fetch_value () {
