@@ -10,7 +10,7 @@ class StatefulComponent extends Component {
 	}
 
 	fetch_value () {
-		DatapointApi.load_tag_num(this.datapoint).then(value => {
+		DatapointApi.tag_load_num(this.datapoint).then(value => {
 			this.update_value(value);
 		});
 	}
