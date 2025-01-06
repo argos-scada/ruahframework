@@ -43,7 +43,7 @@ class SummaryTable extends Component {
 			preTag = preTag ? name : `${preTag}:${name}`;
 		}
 		slice.forEach(([childName, child]) => {
-			let childLabel = child.label;
+			let childLabel = child.label.toLowerCase();
 			let isaTag = `${preTag}:${childName}`;
 			let row = new TableRow(this.model, childName, childLabel, isaTag);
 			this.node.append(row.node);
