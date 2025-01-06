@@ -10,8 +10,8 @@ class DatapointApi {
 	static tag_load_num(xid) {
 		xid = encodeURIComponent(xid);
 		return new Promise((resolve, reject) => {
-			tag_load_value(xid).then(string => {
-					resolve(Number(string));
+			this.tag_load_value(xid).then(string => {
+				resolve(Number(string));
 			}).catch(problem => {
 				reject(problem);
 			});
