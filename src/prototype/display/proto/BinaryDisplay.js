@@ -10,6 +10,7 @@ class BinaryDisplay extends StatefulComponent {
 		this.case_true = case_true;
 		this.case_false = case_false;
 		this.case_undefined = case_undefined;
+		this.write_value();
 		//	Apagar isso futuramente
 		/*
 		setTimeout(() => {
