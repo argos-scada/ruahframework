@@ -8,11 +8,17 @@ class LiveThread {
 		let suffix = element.id.split("update-")[1];
 		this.datapoint = station_tag + ":" + suffix.toLowerCase();
 		this.errorCount = 0;
+		this.displayElement = Array.from(element.children)
+			.find(child => child.getAttribute("inkscape:label") == "numeric value")
+			.children[0]
+			.children[0];
 		this.start_thread();
 	}
 
 	write_value (value) {
-		console.log({ value });
+		console.log({ value, displayElement: this.displayElement });
+		this.displayElement.innerHTML = value;
+		//	SO CONTINUAR DAQUI
 	}
 
 	fetch_value () {
