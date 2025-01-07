@@ -5,7 +5,7 @@ class BinaryDisplay extends StatefulComponent {
 		let map = null;
 		let nodeTag = "div";
 		let className = "BinaryDisplay";
-		let datapoint = `${station_tag}-${suffix}`;
+		let datapoint = `${station_tag}:${suffix}`;
 		super(datapoint, className);
 		this.case_true = case_true;
 		this.case_false = case_false;
@@ -26,6 +26,7 @@ class BinaryDisplay extends StatefulComponent {
 		} else {
 			text = value ? this.case_true : this.case_false;
 		}
+		console.warn({ node: this.node, value, text });
 		this.node.innerHTML = text;
 	}
 }
