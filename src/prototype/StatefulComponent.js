@@ -24,12 +24,16 @@ class StatefulComponent extends Component {
 		return this.address;
 	}
 
-	update_value (value) {
+	replace_text (value) {
 		this.node.innerText = value;
 	}
 
+	write_value (value) {
+		this.replace_text(value);
+	}
+
 	write_error () {
-		this.update_value("\u274C");
+		this.replace_text("\u274C");
 	}
 
 	start_loop () {
