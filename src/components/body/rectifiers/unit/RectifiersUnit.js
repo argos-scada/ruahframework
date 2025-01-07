@@ -1,5 +1,5 @@
 import Component from '../../../../prototype/Component.js';
-import ASSETSAPI from '../../../../lib/ASSETSAPI.js';
+import Synoptic from "../../../../prototype/Synoptic";
 
 class RectifiersUnit extends Component {
 	constructor (map) {
@@ -11,9 +11,8 @@ class RectifiersUnit extends Component {
 
 	#make_child () {
 		let path = "ruah/img/bg/rectifiers.svg";
-		ASSETSAPI.fetch_svg(path).then(svg => {
-			this.node.appendChild(svg);
-		});
+		let diagram = new LiveDiagram(this.map, path);
+		this.node.append(diagram.node);
 	}
 }
 
