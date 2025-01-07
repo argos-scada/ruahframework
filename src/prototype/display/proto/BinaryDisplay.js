@@ -25,7 +25,7 @@ class BinaryDisplay extends StatefulComponent {
 		} else {
 			text = value ? this.case_true : this.case_false;
 		}
-		console.warn({ node: this.node, value, text });
+		console.warn({ node: this.node, value, text, datapoint: this.datapoint });
 		this.replace_text(text);
 	}
 }
