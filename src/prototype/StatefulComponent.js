@@ -44,9 +44,9 @@ class StatefulComponent extends Component {
 			let mayStop = this.errorCount > 3;
 			console.log({ mayStop, errorCount: this.errorCount, datapoint: this.datapoint });
 			if (mayStop) {
-				this.fetch_value();
-			} else {
 				this.stop_loop();
+			} else {
+				this.fetch_value();
 			}
 		}, 3e3);
 	}
