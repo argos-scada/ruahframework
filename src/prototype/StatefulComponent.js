@@ -52,6 +52,7 @@ class StatefulComponent extends Component {
 	}
 
 	stop_loop () {
+		console.warn({ message: "Stop loop", errorCount: this.errorCount, datapoint: this.datapoint });
 		clearInterval(this.loopPointer);
 		this.write_error();
 	}
