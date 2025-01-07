@@ -11,7 +11,7 @@ class RectifiersUnit extends Component {
 
 	#make_child () {
 		let path = "ruah/img/bg/rectifiers.svg";
-		let diagram = new LiveDiagram(this.map, path);
+		let diagram = new Synoptic(this.map, path);
 		this.node.append(diagram.node);
 	}
 }
